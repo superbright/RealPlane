@@ -41,7 +41,7 @@ namespace HoloToolkit.Unity
             if(trackedHands.Count > 0 && debug!= null)
             {
                 // debug.text = trackedHands[0]
-                
+               // InteractionManager.
             }
         }
 

@@ -16,5 +16,12 @@ public class AngleTracker : MonoBehaviour {
             display1.text = "x: " + transform.rotation.eulerAngles.x + " y: " + transform.rotation.eulerAngles.y + " z: " + transform.rotation.eulerAngles.z;
             //Debug.Log(display1.text);
         }
+        if (transform.rotation.eulerAngles.x > 330 )
+        {
+            gameObject.GetComponentInChildren<Renderer>().enabled = true;
+        } else
+        {
+            gameObject.GetComponentInChildren<Renderer>().enabled = false;
+        }
 	}
 }
