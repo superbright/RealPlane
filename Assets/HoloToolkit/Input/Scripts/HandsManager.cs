@@ -27,12 +27,22 @@ namespace HoloToolkit.Unity
         public delegate void HandInViewDelegate(bool handDetected);
         public event HandInViewDelegate HandInView;
 
-        private HashSet<uint> trackedHands = new HashSet<uint>();
+        public HashSet<uint> trackedHands = new HashSet<uint>();
+        public UnityEngine.UI.Text debug;
 
         private void Awake()
         {
             InteractionManager.SourceDetected += InteractionManager_SourceDetected;
             InteractionManager.SourceLost += InteractionManager_SourceLost;
+        }
+
+        private void Update()
+        {
+            if(trackedHands.Count > 0 && debug!= null)
+            {
+                // debug.text = trackedHands[0]
+                
+            }
         }
 
         private void InteractionManager_SourceDetected(InteractionSourceState state)
