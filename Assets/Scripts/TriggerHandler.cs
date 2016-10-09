@@ -4,6 +4,8 @@ using System.Collections;
 public class TriggerHandler : MonoBehaviour {
 
     public TestBLE bleHandler;
+    public AudioSource destoySound;
+
     void OnTriggerEnter(Collider other)
     {
         Debug.Log("triggered " + other.gameObject.name);
@@ -12,13 +14,20 @@ public class TriggerHandler : MonoBehaviour {
         {
             bleHandler.RxBTLE("71");
         }
-      //  LeanTween.rotateAround(other.gameObject, Vector3.left, 45f, 4.0f);
-        LeanTween.moveLocal(other.gameObject, new Vector3(0, 0.5f, 0), 1.0f).setOnComplete(
-            () =>
-            {
-                LeanTween.moveLocal(other.gameObject, new Vector3(0, 0f, 0), 1.0f).setDelay(0.5f);
-            }
-            );
+
+        if(destoySound != null)
+        {
+            destoySound.Play();
+        }
+
+        Destroy(other.gameObject);
+      // LeanTween.rotateAround(other.gameObject, Vector3.left, 45f, 4.0f);
+      //  LeanTween.moveLocal(other.gameObject, new Vector3(0, 0.5f, 0), 1.0f).setOnComplete(
+          //  () =>
+         //   {
+         //       LeanTween.moveLocal(other.gameObject, new Vector3(0, 0f, 0), 1.0f).setDelay(0.5f);
+         //   }
+         //   );
       
     }
 }

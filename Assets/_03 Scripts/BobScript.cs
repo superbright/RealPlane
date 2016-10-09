@@ -8,8 +8,10 @@ public class BobScript : MonoBehaviour {
 	public float speed = 1f;
 	public float rotSpeed = 90f;
 
-	// Use this for initialization
-	void OnEnable () {
+    //public AudioSource spawnSound;
+
+    // Use this for initialization
+    void OnEnable () {
 		startPosition = transform.position;
 	}
 

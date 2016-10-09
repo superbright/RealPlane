@@ -61,7 +61,7 @@ public class crystalSpawner : MonoBehaviour {
 
 	// Update is called once per frame
 	void FixedUpdate () {
-	
+        transform.position = Camera.main.transform.position;
 		if (Time.realtimeSinceStartup - lastSpawnTime > spawnTime)
 		{
 			/* first,go through spawned objects and remove any nulls */
