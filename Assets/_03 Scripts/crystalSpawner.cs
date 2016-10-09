@@ -4,9 +4,10 @@ using System.Collections;
 public class crystalSpawner : MonoBehaviour {
 
 
-	public float radius; 
-	public float spawnTime;
-	public int maxNum;
+	public float radius = 5f;
+    public float min_radius = 2f;
+	public float spawnTime = 5f;
+	public int maxNum = 5;
 	public float spawn_y = 1f;
 
 	public GameObject[] Crystals;
@@ -30,9 +31,19 @@ public class crystalSpawner : MonoBehaviour {
 
 		GameObject newObj = Instantiate (Crystals[Random.Range(0, Crystals.Length - 1)]);
 		Vector3 newpos = transform.position;
-		newpos.x += Random.Range (-1 * radius, radius);
-		newpos.z += Random.Range (-1 * radius, radius);
-		newpos.y = spawn_y;
+
+        // get random distance and angle;
+
+        float distance = Random.Range(min_radius, radius);
+        float angle = Random.Range(0, 360f * Mathf.Deg2Rad);
+
+        Vector2 point = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
+        point *= distance;
+
+        newpos.x += point.x;
+        newpos.z += point.y;
+        
+        newpos.y = spawn_y;
 
 		BobScript bs = newObj.GetComponent<BobScript> ();
 
@@ -55,7 +66,9 @@ public class crystalSpawner : MonoBehaviour {
 		{
 			/* first,go through spawned objects and remove any nulls */
 			for (int i = 0; i < spawnedObjects.Count; i++) {
-				if (spawnedObjects [i] == null) {
+                GameObject go = (GameObject)spawnedObjects[i];
+
+                if (go == null || go.Equals(null)) {
 					spawnedObjects.RemoveAt (i);
 				}
 			}

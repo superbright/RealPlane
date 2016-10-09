@@ -47,6 +47,8 @@ public class TestBLE : MonoBehaviour
         if (!found)
         {
             string[] devices = btlec.DeviceList();
+            if (devices == null)
+                return;
             foreach (string s in devices)
             {
                 if (s.Equals(Addr_Holo))
