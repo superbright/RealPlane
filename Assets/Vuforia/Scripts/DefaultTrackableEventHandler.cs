@@ -53,7 +53,7 @@ namespace Vuforia
             {
                 if (bleHandler != null && bleHandler.btlec.am_connected())
                 {
-                    bleHandler.RxBTLE("1");
+                    bleHandler.RxBTLE("16");
                 }
                 OnTrackingFound();
             }
@@ -61,7 +61,7 @@ namespace Vuforia
             {
                 if (bleHandler != null && bleHandler.btlec.am_connected())
                 {
-                    bleHandler.RxBTLE("20");
+                    bleHandler.RxBTLE("16");
                 }
                 OnTrackingLost();
             }

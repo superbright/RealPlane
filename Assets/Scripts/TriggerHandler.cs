@@ -12,7 +12,7 @@ public class TriggerHandler : MonoBehaviour {
         //haptic
         if(bleHandler != null && bleHandler.btlec.am_connected())
         {
-            bleHandler.RxBTLE("71");
+            bleHandler.RxBTLE("88");
         }
 
         if(destoySound != null)

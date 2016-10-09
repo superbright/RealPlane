@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
+    <ImageTarget name="markergrid6_6" size="0.152400 0.152400" />
     <ImageTarget name="MarkerTest8" size="0.150000 0.050000" />
     <ImageTarget name="Track_1m" size="1.000000 0.333333" />
     <ImageTarget name="FINALMARKER_MIThack" size="0.152400 0.050800" />
