@@ -21,6 +21,7 @@ namespace Vuforia
         #endregion // PRIVATE_MEMBER_VARIABLES
 
         public TestBLE bleHandler;
+        public bool isTracking;
 
         #region UNTIY_MONOBEHAVIOUR_METHODS
 
@@ -55,6 +56,7 @@ namespace Vuforia
                 {
                     bleHandler.RxBTLE("16");
                 }
+                isTracking = true;
                 OnTrackingFound();
             }
             else
@@ -63,6 +65,7 @@ namespace Vuforia
                 {
                     bleHandler.RxBTLE("16");
                 }
+                isTracking = false;
                 OnTrackingLost();
             }
         }
